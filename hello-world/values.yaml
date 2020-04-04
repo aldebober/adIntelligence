@@ -34,7 +34,11 @@ securityContext: {}
 
 service:
   type: ClusterIP
-  port: 80
+  ports:
+  - name: http
+    port: 80
+  - name: metrics
+    port: 8001
 
 ingress:
   enabled: true
@@ -44,6 +48,7 @@ ingress:
   hosts:
     - host: hello.test.local
       paths: ["/"]
+      port: 80
   tls:
     - secretName: cert-test
       hosts:

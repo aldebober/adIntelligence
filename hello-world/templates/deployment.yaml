@@ -31,6 +31,9 @@ spec:
             - name: http
               containerPort: 8888
               protocol: TCP
+            - name: metrics
+              containerPort: 8001
+              protocol: TCP
           livenessProbe:
             httpGet:
               path: /
